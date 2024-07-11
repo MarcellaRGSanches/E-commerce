@@ -9,7 +9,7 @@ export abstract class Produto{
 		this._id = id;
 		this._tipo = tipo;
 		this._preco = preco;
-        this._persongem = personagem
+        this._persongem = personagem;
 	}
 
 	public get id(): number {
@@ -54,10 +54,10 @@ export abstract class Produto{
         console.log ("***************************************************");
         console.log ("***************** DADOS DO PRODUTO ****************");
         console.log ("***************************************************");
-        console.log (`\nID: ${this.id}`);
+        console.log (`\nID: ${this._id}`);
         console.log (`\nTipo: ${tipo}`);
-        console.log (`\nPreço: ${this.preco}`);
-        console.log (`\nPersonagem: ${this.persongem}`);
+        console.log (`\nPreço: ${this._preco}`);
+        console.log (`\nPersonagem: ${this._persongem}`);
     }
 
 };
