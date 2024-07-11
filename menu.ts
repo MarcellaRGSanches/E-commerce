@@ -22,7 +22,7 @@ export function main() {
     produtos.cadastrar(new FunkoPop(produtos.gerarId(), 2, 65, "Vira Tempo", "dourado"));
 
     while (true) {
-        console.log(colors.bg.black, colors.fg.magenta,
+        console.log(colors.bg.black, colors.fg.red,
             "******************************************************");
         console.log("                                                     ");
         console.log("                LOJINHA DOS POTTERHEADS              ");
@@ -44,7 +44,7 @@ export function main() {
         opcao = readlinesync.questionInt("");
 
         if (opcao == 6) {
-            console.log(colors.bg.black, colors.fg.magentastrong, "\nNa lojinha dos Potterheads voce garante o seu produto com qualidade!!", colors.reset);
+            console.log(colors.bg.black, colors.fg.red, "\nNa lojinha dos Potterheads voce garante o seu produto com qualidade!!", colors.reset);
             sobre();
             process.exit(0);
         }
