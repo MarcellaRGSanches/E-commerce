@@ -10,7 +10,7 @@ export function main() {
     let produtos: ProdutoController = new ProdutoController();
 
     let opcao, id, tipo, preco: number;
-    let  cor, tamanho, personagem: string;
+    let cor, tamanho, personagem: string;
     const tipoProduto = ['Funko POP', 'Caneca'];
 
     produtos.cadastrar(new FunkoPop(produtos.gerarId(), 1, 150, "Harry Potter", "grande"));
@@ -32,8 +32,9 @@ export function main() {
         console.log("            1 - Cadastrar Produto                    ");
         console.log("            2 - Listar todos os produtos             ");
         console.log("            3 - Procurar os produtos por ID          ");
-        console.log("            4 - Comprar Produto                      ");
-        console.log("            5 - Sair                                 ");
+        console.log("            4 - Atualizar Produto                    ");
+        console.log("            5 - Comprar Produto                      ");
+        console.log("            6 - Sair                                 ");
         console.log("                                                     ");
         console.log("*****************************************************");
         console.log("                                                     ",
@@ -42,8 +43,8 @@ export function main() {
         console.log("Entre com a opção desejada: ");
         opcao = readlinesync.questionInt("");
 
-        if (opcao == 5) {
-            console.log(colors.bg.black, colors.fg.magentastrong, "\nNa lojinha dos Potterheads voce garante o seu produto potterhead!!", colors.reset);
+        if (opcao == 6) {
+            console.log(colors.bg.black, colors.fg.magentastrong, "\nNa lojinha dos Potterheads voce garante o seu produto com qualidade!!", colors.reset);
             sobre();
             process.exit(0);
         }
@@ -96,7 +97,45 @@ export function main() {
                 break;
 
             case 4:
+                console.log("\nDigite o id do produto: ");
+                id = readlinesync.questionInt("");
+
+                let conta = produtos.buscarNoArray(id);
+
+                if (conta) {
+                    console.log("Digite o id do produto: ");
+                    id = readlinesync.questionInt("");
+
+                    console.log("Digite o preco do produto: ");
+                    preco = readlinesync.questionFloat("");
+
+                    tipo = conta.tipo;
+
+                    console.log("Digite o personagem do seu produto: ")
+                    personagem = readlinesync.question("");
+
+
+                    switch (tipo) {
+                        case 1:
+                            console.log("Digite o tamanho do seu Funko: ");
+                            tamanho = readlinesync.question(" ");
+                            produtos.atualizar(new FunkoPop(id, tipo, preco, personagem, tamanho));
+                            break;
+                        case 2:
+                            console.log("Digite a cor da sua caneca: ");
+                            cor = readlinesync.question("");
+                            produtos.atualizar(new Caneca(id, tipo, preco, personagem, cor));
+                            break;
+                    }
+                } else {
+                    console.log("\nO produto nao foi encontrado!")
+                }
+                keyPress()
+                break;
+
+            case 5:
                 console.log("\n\nComprar Produto\n\n");
+                console.log("\n\nEscolha um Id pra realizar sua compra: \n\n");
                 id = readlinesync.questionInt(" ");
                 produtos.deletar(id);
                 keyPress()

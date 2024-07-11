@@ -2,6 +2,18 @@ import { Produto } from "../model/Produto";
 import { ProdutoRepository } from "../repository/ProdutoRepository";
 
 export class ProdutoController implements ProdutoRepository {
+    atualizar(produto: Produto): void {
+        let buscaProduto = this.buscarNoArray(produto.id);
+
+        if (buscaProduto != null) {
+            this.listaProdutos[this.listaProdutos.indexOf(buscaProduto)] = produto;
+            console.log('\nO produto com o id: ' + produto.id + ' foi atualizado com sucesso!');
+        } else {
+            console.log('\nO produto com o id: ' + produto.id + 'nao foi encontrado!');
+        }
+
+
+    }
     private listaProdutos: Array<Produto> = new Array<Produto>()
     id: number = 0
 
@@ -32,10 +44,10 @@ export class ProdutoController implements ProdutoRepository {
         let buscaProduto = this.buscarNoArray(id);
 
         if (buscaProduto != null) {
-            this.listaProdutos.splice(this.listaProdutos.indexOf(buscaProduto), 1);//INDEXoF PRA ENCONTRAR O INDICE, o 1 é pra excluir um unico elemento  
-            console.log("\nO produto id: " + id + "foi comprado com sucesso!");
+            this.listaProdutos.splice(this.listaProdutos.indexOf(buscaProduto), 1);
+            console.log("\nO produto id: " + id + " foi comprado com sucesso!");
         } else {
-            console.log("\nO produto com o id: " + id + "nao foi encontrado!")
+            console.log("\nO produto com o id: " + id + " nao foi encontrado!")
         }
 
     }
