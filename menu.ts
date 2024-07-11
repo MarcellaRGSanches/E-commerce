@@ -1,10 +1,22 @@
 import readlinesync = require("readline-sync");
 import { colors } from './src/util/Colors';
+import { FunkoPop } from "./src/model/FunkoPop";
+import { Caneca } from "./src/model/Caneca";
 
 export function main() {
 
     let opcao: number;
- 
+
+    const fp1: FunkoPop = new FunkoPop(1, 1, 150, "Harry Potter", "médio");
+    const fp2: FunkoPop = new FunkoPop(1, 1, 140, "Luna Lovegood", "médio");
+    fp1.visualizar();
+    fp2.visualizar();
+
+    const c1: Caneca = new Caneca(2, 2, 55, "Mandragora", "marrom");
+    const c2: Caneca = new Caneca(2, 2, 65, "Edwiges", "branca");
+    c1.visualizar();
+    c2.visualizar();
+
     while (true) {
         console.log(colors.bg.black, colors.fg.magenta,
             "******************************************************");
