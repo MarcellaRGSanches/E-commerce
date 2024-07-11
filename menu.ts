@@ -2,7 +2,7 @@ import readlinesync = require("readline-sync");
 import { colors } from './src/util/Colors';
 
 export function main() {
-    //Variaveis Auxiliares 
+
     let opcao: number;
  
     while (true) {
@@ -15,7 +15,7 @@ export function main() {
         console.log("                                                     ");
         console.log("            1 - Cadastrar Produto                    ");
         console.log("            2 - Listar todos os produtos             ");
-        console.log("            3 - Buscar Conta por Numero              ");
+        console.log("            3 - Listar os produtos por ID            ");
         console.log("            4 - Atualizar Dados do produto           ");
         console.log("            5 - Apagar Produto                       ");
         console.log("            6 - Sair                                 ");
@@ -27,7 +27,7 @@ export function main() {
         console.log("Entre com a opção desejada: ");
         opcao = readlinesync.questionInt("");
 
-        if (opcao == 9) {
+        if (opcao == 6) {
             console.log(colors.bg.black, colors.fg.magentastrong, "\nNa lojinha do Harry tu garante o seu produto potterhead", colors.reset);
             sobre();
             process.exit(0);
@@ -46,7 +46,7 @@ export function main() {
                 break;
 
             case 3:
-                console.log("\n\nBuscar Conta por Numero\n\n");
+                console.log("\n\nListar os produtos por ID\n\n");
                 keyPress()
                 break;
 
